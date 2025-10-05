@@ -1,0 +1,41 @@
+spring:
+  web:
+    resources:
+      add-mappings: true
+
+  application:
+    name: fluxo-statrategy
+
+  datasource:
+    url: jdbc:postgresql:${HOST_DB://localhost:5432}/bdmodelo
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        generate_statistics: true
+
+
+swagger:
+  username: ${SWAGGER_USERNAME:root}
+  password: ${SWAGGER_PASSWORD:root}
+
+springdoc:
+  group-configs:
+    - group: public
+      paths-to-match: /api/**
+  show-actuator: true
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 8585
+

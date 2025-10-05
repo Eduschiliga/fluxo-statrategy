@@ -18,10 +18,7 @@ public class WebClientConfig {
     @Bean
     public WebClient webClient() {
         final HttpClient httpClient = HttpClient.create()
-                .responseTimeout(Duration.ofSeconds(5))
-                .doOnConnected(conn ->
-                        conn.addHandlerLast(new io.netty.handler.timeout.ReadTimeoutHandler(5))
-                                .addHandlerLast(new io.netty.handler.timeout.WriteTimeoutHandler(5)));
+                .responseTimeout(Duration.ofSeconds(5));
 
 
         int maxMemory = 16 * (1024 * 2);

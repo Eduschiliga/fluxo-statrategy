@@ -53,7 +53,8 @@ public class ClienteHttp {
     public <T> T fazerRequisicao(String url, HttpMethod metodo, @Nullable Object body, @Nullable HttpHeaders headers) {
         try {
             return buildRequestSpec(url, metodo, body, headers)
-                    .bodyToMono(new ParameterizedTypeReference<T>() {})
+                    .bodyToMono(new ParameterizedTypeReference<T>() {
+                    })
                     .block();
         } catch (Exception e) {
             String msgErro = "Erro inesperado na requisição: " + e.getMessage();
@@ -64,7 +65,8 @@ public class ClienteHttp {
     public <T> List<T> fazerRequisicaoLista(String url, HttpMethod metodo, @Nullable Object body, @Nullable HttpHeaders headers) {
         try {
             return buildRequestSpec(url, metodo, body, headers)
-                    .bodyToMono(new ParameterizedTypeReference<List<T>>() {})
+                    .bodyToMono(new ParameterizedTypeReference<List<T>>() {
+                    })
                     .block();
         } catch (Exception e) {
             String msgErro = "Erro inesperado na requisição: " + e.getMessage();

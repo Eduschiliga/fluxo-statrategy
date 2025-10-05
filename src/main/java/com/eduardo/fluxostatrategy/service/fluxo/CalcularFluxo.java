@@ -8,15 +8,16 @@ import com.eduardo.fluxostatrategy.model.request.processo.ProtocolarRequest;
 import com.eduardo.fluxostatrategy.service.strategy.factory.FluxoStrategyFactory;
 import com.eduardo.fluxostatrategy.service.strategy.interfaces.CorrecaoStrategy;
 import com.eduardo.fluxostatrategy.service.strategy.interfaces.DestinoStrategy;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class CalcularFluxo {
     private final FluxoStrategyFactory strategyFactory;
 
-    public CalcularFluxo(FluxoStrategyFactory strategyFactory) {
-        this.strategyFactory = strategyFactory;
-    }
 
     /**
      * orquestra a execução do fluxo.
@@ -55,3 +56,4 @@ public class CalcularFluxo {
 
     }
 }
+
